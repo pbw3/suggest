@@ -1,0 +1,3245 @@
+@font-face {
+    font-family: 'robotoSlab';
+    src: url('robotoSlab.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+#_GLOBAL_VARIABLES {}
+
+:root {
+    /* Material Design Colors */
+    /* https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=006EB6&secondary.color=213269 */
+    /* https://material.io/design/color/the-color-system.html#tools-for-picking-colors */
+    /* Primary colors: app bars */
+    /* Secondary colors: accents on components such as FABs and selection controls */
+    /* Background: behind scrollable content */
+    /* Surface: surface of components such as cards, sheets, and menus */
+    /* Error: such as text fields with inaccurate input #b00020; */
+    /* On-colors: how text, icons, and strokes appear on theme colors */
+    /*  */
+    /* Default: BYU-PW Gold. See settings.js for more */
+    --primary: #AEC4D8;
+    --primaryLight: #cde7ff;
+    --on-primary: #52534B;
+    --secondary: #BCBEC0;
+    --secondaryLight: #E6E7E8;
+    --on-secondary: #2F302C;
+    --hyperlink: #47779A;
+    --hyperlinkLight: #65abdd;
+    /* Default: Light */
+    --surface: #000000;
+    --on-surface: #bdbdbd;
+    --secondary: #262627;
+    --secondaryLight: #464647;
+    --on-secondary: #B3B3B3;
+    --error: #E42226;
+    --on-error: #F7F8F8;
+    /* App Settings */
+    --transitionDelay: .5s;
+    /* --appFont: "Nunito", sans-serif; */
+    --appFont: "Open Sans", sans-serif;
+    --appFontSize: 14px;
+    --appLineHeight: 1.5rem;
+    /* --crsFont: "Open Sans", Arial, Helvetica, sans-serif; */
+    /* --crsFontHeading: "robotoSlab", serif; */
+    /* --crsFont: "Times New Roman", Georgia, serif; */
+    /* --crsFontHeading: "Open Sans", Arial, Helvetica, sans-serif; */
+    --crsFont: "Open Sans", Arial, Helvetica, sans-serif;
+    --crsFontHeading: "Times New Roman", Georgia, serif;
+    --crsFontSize: 18px;
+    --crsLineHeight: 2rem;
+    --smallLineHeight: 1rem;
+    /* Height of nav bars and buttons; bigger on mobile. */
+    --barHeight: 4rem;
+    --buttonHeight: 3rem;
+    /* Colors as rgba parameters to allow for highlight opacity calculation */
+    --red: 172, 31, 35;
+    --orange: 203, 96, 40;
+    --yellow: 255, 205, 3;
+    --green: 107, 157, 65;
+    --blue: 25, 71, 147;
+    --purple: 99, 23, 78;
+    --highlightOpacity: .25;
+    --underlineOpacity: .8;
+}
+
+#_GENERAL_STYLES {}
+
+#asHtml {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: var(--appFontSize);
+    line-height: var(--appLineHeight);
+    scrollbar-color: var(--secondary) var(--secondaryLight);
+    scrollbar-width: thin;
+    /* scrollbar-face-color: var(--on-secondary);
+    scrollbar-base-color: var(--secondary);
+    scrollbar-3dlight-color: var(--secondary);
+    scrollbar-highlight-color: var(--secondary);
+    scrollbar-track-color: var(--secondaryLight);
+    scrollbar-arrow-color: var(--secondaryLight);
+    scrollbar-shadow-color: var(--secondary);
+    scrollbar-dark-shadow-color: var(--secondary); */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+    background-color: var(--secondary);
+}
+
+::-webkit-scrollbar-button {
+    height: 0px;
+    background-color: var(--surface);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--secondaryLight);
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: var(--secondaryLight);
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: var(--secondary);
+    /* border-radius: 3px; */
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--secondary);
+}
+
+::-webkit-resizer {
+    background-color: var(--secondary);
+}
+
+#asBody {
+    background-color: var(--surface);
+    font-family: var(--appFont);
+    color: var(--on-surface);
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#asBody button {
+    border: 0;
+}
+
+#asBody input[type=text],
+#asBody input[type=search],
+#asBody input[type=time],
+#asBody select {
+    height: 70%;
+    padding: 4px;
+    padding-left: 7px;
+    color: var(--on-surface);
+    background-color: var(--surface);
+    border: 1px solid var(--secondary);
+    border-radius: 2px;
+    outline-color: var(--primary);
+    margin: .5rem;
+    min-width: 1rem;
+}
+
+#asBody textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 8rem;
+    padding: 4px;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    border: 1px solid var(--secondary);
+    outline-color: var(--primary);
+    font-family: var(--appFont);
+    line-height: var(--appLineHeight);
+    resize: none;
+}
+
+.txtSearch {
+    flex: 1;
+    margin: .5rem;
+}
+
+#asApp div.bar.secondary,
+#asApp .button.secondary,
+#asApp div.bar.secondary>.colContainer>.button {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+}
+
+#asApp .button.secondary:hover,
+#asApp .button.secondary:focus,
+#asApp div.bar.secondary>.colContainer>.button:hover,
+#asApp div.bar.secondary>.colContainer>.button:focus {
+    background-color: var(--secondaryLight);
+    color: var(--on-secondary);
+    outline: 0;
+}
+
+#asApp div.bar.surface,
+#asApp .surface .button {
+    color: var(--on-surface);
+    background-color: var(--surface);
+}
+
+#asApp .surface .button:hover {
+    background-color: var(--secondaryLight);
+}
+
+.blank {
+    flex: 1;
+}
+
+.blankBtn {
+    /* flex: 1; */
+    display: inline-block;
+    min-width: var(--buttonHeight);
+    box-sizing: border-box;
+}
+
+#asApp div.selectUserTitle {
+    padding: 2rem;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    line-height: 1.25;
+}
+
+#asApp .bar #avatar {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 3px solid var(--primaryLight);
+    padding: 0;
+    width: var(--buttonHeight);
+    overflow: hidden;
+    line-height: calc(var(--buttonHeight) - 4px);
+    text-align: center;
+    font-weight: bold;
+}
+
+#avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#avatarLabel {
+    text-align: right;
+    padding-right: .5rem;
+}
+
+
+/*
+See Content Image section
+
+.right,
+.right * {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.center {
+    text-align: center;
+} */
+
+.noscroll {
+    overflow-y: hidden;
+}
+
+#_BASIC_LAYOUT {}
+
+#asApp {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+}
+
+
+/* ToDo: Change to bottomPanel */
+
+.bottomPanel {
+    position: relative;
+    flex: 1;
+    max-height: 0;
+    z-index: 200;
+    margin: 0;
+    box-sizing: border-box;
+    transition: max-height var(--transitionDelay);
+}
+
+.bottomPanel.open {
+    /* max-height: 9rem; */
+    max-height: calc(var(--barHeight) *3);
+}
+
+#referencePanel {
+    position: relative;
+    flex: 1;
+    max-height: 0;
+    z-index: 200;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all var(--transitionDelay);
+    background-color: var(--secondary);
+    /* padding: 1rem; */
+}
+
+#referencePanel.open {
+    /* max-height: 9rem; */
+    border-top: 1px solid var(--secondary);
+    max-height: 50%;
+}
+
+#referencePanel .content {
+    padding: 1rem;
+}
+
+.leftPanel {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    max-width: 0;
+    box-sizing: border-box;
+    transition: min-width var(--transitionDelay);
+}
+
+.leftPanel.open {
+    min-width: 0;
+    max-width: 0;
+}
+
+.leftDrawer {
+    position: absolute;
+    left: -300px;
+    /* left: -100vw; */
+    top: 0;
+    width: 300px;
+    /* width: 100vw; */
+    height: 100%;
+    background-color: var(--surface);
+    border-right: 2px solid var(--secondary);
+    z-index: 900;
+    margin: 0;
+    box-sizing: border-box;
+    transition: left var(--transitionDelay);
+}
+
+.leftPanel.open .leftDrawer {
+    left: 0;
+}
+
+.centerPanel {
+    position: relative;
+    flex: 1;
+    min-width: 300px;
+    padding: 0rem 0rem;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.rightPanel {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    max-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: min-width var(--transitionDelay);
+}
+
+.rightPanel.open {
+    max-width: 0px;
+}
+
+.rightDrawer {
+    position: absolute;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: var(--surface);
+    border-left: 2px solid var(--secondary);
+    z-index: 800;
+    margin: 0;
+    box-sizing: border-box;
+    transition: right var(--transitionDelay);
+}
+
+.rightPanel.open .rightDrawer {
+    right: 0;
+}
+
+.content {
+    flex: 1;
+    padding: .5rem;
+    /* margin: 1rem; */
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+.content p {
+    padding-bottom: 1rem;
+}
+
+.padding {
+    padding: .5rem;
+}
+
+#tabContentReader {
+    position: relative;
+}
+
+#asApp div.mainScroll {
+    position: relative;
+    flex: 1;
+    /* padding: .5rem; */
+    /* margin: 1rem; */
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    align-items: stretch;
+    box-sizing: border-box;
+    display: none;
+}
+
+#asApp div.current>div.mainScroll {
+    display: block;
+}
+
+#mainContent {
+    font-family: var(--crsFont);
+    font-size: var(--crsFontSize);
+    color: var(--on-surface);
+    max-width: 600px;
+    min-height: 1px;
+    margin: 0px auto 0px auto;
+    padding: 2rem;
+    padding-left: 2.25rem;
+    box-sizing: border-box;
+}
+
+#mainContent .banner {
+    margin: -2.5rem -2.5rem 0 -2.75rem
+}
+
+#mainContent .banner img {
+    max-width: 100%;
+    width: 100%;
+}
+
+#mainContent .signIn {
+    box-sizing: border-box;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+#mainContent .signIn label {
+    box-sizing: border-box;
+    margin: .5rem;
+    font-family: var(--appFont);
+    font-size: small;
+}
+
+#mainContent .signIn input {
+    box-sizing: border-box;
+    margin: .5rem;
+    height: 2.5rem;
+    width: calc(100% - 1.5rem);
+    font-size: large;
+}
+
+#mainContent .signIn>div>button {
+    margin-right: 1rem;
+}
+
+#mainContent p,
+#mainContent li {
+    position: relative;
+    line-height: var(--crsLineHeight);
+    padding-bottom: 1rem;
+}
+
+#mainContent ol>ol {
+    list-style-type: lower-alpha;
+}
+
+
+/* Main Content styles. Leave off #mainContent specificity so epub 
+* style sheet can override these defaults. Add specificity where this style sheet 
+* needs to override epub style. */
+
+
+/* #mainContent h1 { */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--crsFontHeading);
+}
+
+h1 {
+    position: relative;
+    font-size: 2em;
+    font-weight: normal;
+    line-height: 1.5em;
+    padding-bottom: 3.5em;
+    /* color: var(--hyperlink); */
+}
+
+h2 {
+    position: relative;
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1.5em;
+}
+
+h3 {
+    position: relative;
+    font-family: var(--crsFont);
+    font-size: 1.3em;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.5em;
+}
+
+h4 {
+    font-family: var(--crsFontHeading);
+    font-weight: bold;
+}
+
+h5 {
+    font-family: var(--crsFont);
+    font-weight: bold;
+}
+
+h6 {
+    font-family: var(--crsFont);
+    font-weight: bold;
+    font-style: italic;
+}
+
+a {
+    color: var(--hyperlink);
+}
+
+a:hover {
+    color: var(--hyperlinkLight);
+}
+
+a[href*="//"]:not([href*="byupathway.org/study"]):not([href*="localhost"]):not(.actionBtn) {
+    text-decoration: underline double;
+}
+
+a.embedPage {
+    display: block;
+    margin: -1rem;
+    padding: 1rem;
+    color: var(--on-secondary);
+    background-color: var(--secondaryLight);
+    border-radius: .25rem;
+    border: 1px dashed var(--on-secondary);
+}
+
+p.indented {
+    margin-left: 2rem;
+}
+
+p.rightQuote,
+p.leftQuote {
+    padding: 1rem;
+    margin: 0 1rem 1rem 1rem;
+    width: 200px;
+    max-width: 40%;
+    font-style: italic;
+    color: var(--on-secondary);
+    background: var(--secondary);
+}
+
+p.leftQuote {
+    float: left;
+    margin-left: 0;
+}
+
+p.rightQuote {
+    float: right;
+    margin-right: 0;
+}
+
+
+/* Action Buttons */
+
+a.actionBtn,
+button.actionBtn {
+    display: inline-block;
+    margin: .5rem;
+    border: 1px solid var(--hyperlink);
+    border-radius: .5rem;
+    padding: 0 1rem;
+    height: var(--buttonHeight);
+    line-height: var(--buttonHeight);
+    font-family: var(--crsFontHeading);
+    text-decoration: none;
+}
+
+a.actionBtn::before,
+button.actionBtn::before {
+    padding-right: .5rem;
+    margin-left: -.25rem;
+}
+
+a.actionBtn:hover,
+button.actionBtn:hover {
+    color: var(--surface);
+    background-color: var(--hyperlink);
+}
+
+a.actionBtn.markDone:before {
+    content: "\e95c";
+    font-family: 'icon';
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+a.actionBtn.markDone.done {
+    color: var(--on-error);
+    background-color: rgb(var(--green));
+}
+
+a.actionBtn.markDone.done:before {
+    content: "\e91a";
+}
+
+.conceptTable button {
+    display: inline-block;
+    /* margin: .5rem; */
+    border: 1px solid var(--hyperlink);
+    /* border-radius: .5rem; */
+    padding: 0 1rem;
+    height: var(--buttonHeight);
+    line-height: var(--buttonHeight);
+    /* font-family: var(--crsFontHeading); */
+    text-decoration: none;
+}
+
+.conceptTable button::before {
+    padding-right: .5rem;
+    margin-left: -.25rem;
+}
+
+.conceptTable button:hover {
+    color: var(--surface);
+    background-color: var(--hyperlink);
+}
+
+#mainContent img,
+iframe {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+}
+
+figure {
+    border: 1px solid var(--secondary);
+}
+
+figcaption {
+    font-size: 80%;
+    font-style: italic;
+}
+
+.left {
+    float: left;
+    display: block;
+    margin: 12px 15px 12px 0;
+}
+
+.center {
+    display: block;
+    margin: 12px auto;
+    text-align: center
+}
+
+.right {
+    float: right;
+    display: block;
+    margin: 12px 0 12px 15px;
+}
+
+.full {
+    width: 100%;
+}
+
+.half {
+    width: 50%;
+}
+
+.quarter {
+    width: 25%;
+}
+
+.sanded {
+    border-radius: .5rem;
+}
+
+.rounded {
+    border-radius: 1rem;
+}
+
+.oval {
+    border-radius: 50%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid var(--secondary);
+}
+
+th,
+td {
+    padding: 1rem;
+}
+
+th p,
+td p {
+    margin: 0;
+}
+
+#asApp .alignRight {
+    text-align: right;
+}
+
+#asApp .noMargin {
+    margin: 0;
+}
+
+#asApp .feedbackForm p {
+    margin: 0;
+    padding: 0;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-weight: bold;
+}
+
+#asApp div.form .ratingScale button {}
+
+#mainContent .marked {
+    /* see scratch/mark.html */
+    border-left: .25rem solid var(--primaryLight);
+    padding-left: .5rem;
+    margin-left: -.75rem;
+}
+
+#mainContent mark {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#mainContent mark.selected {
+    background-color: highlight;
+    color: highlighttext;
+}
+
+#mainContent button.marginBtn {
+    position: absolute;
+    inset-inline-end: -2rem;
+    transform: translate(0, -.5rem);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    color: var(--on-surface);
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#mainContent button.marginBtn:hover {
+    background-color: var(--secondaryLight);
+}
+
+#mainContent button.marginBtn.leftMargin {
+    inset-inline-end: unset;
+    inset-inline-start: -2.5rem;
+}
+
+#mainContent .highlight-red {
+    background-color: rgba(var(--red), var(--highlightOpacity));
+}
+
+#mainContent .highlight-orange {
+    background-color: rgba(var(--orange), var(--highlightOpacity));
+}
+
+#mainContent .highlight-yellow {
+    background-color: rgba(var(--yellow), var(--highlightOpacity));
+}
+
+#mainContent .highlight-green {
+    background-color: rgba(var(--green), var(--highlightOpacity));
+}
+
+#mainContent .highlight-blue {
+    background-color: rgba(var(--blue), var(--highlightOpacity));
+}
+
+#mainContent .highlight-purple {
+    background-color: rgba(var(--purple), var(--highlightOpacity));
+}
+
+#mainContent .underline-red {
+    background-color: transparent;
+    box-shadow: rgba(var(--red), var(--underlineOpacity)) 0px 2px 0px;
+}
+
+#mainContent .underline-orange {
+    background-color: transparent;
+    box-shadow: rgba(var(--orange), var(--underlineOpacity)) 0px 2px 0px;
+}
+
+#mainContent .underline-yellow {
+    background-color: transparent;
+    box-shadow: rgba(var(--yellow), var(--underlineOpacity)) 0px 2px 0px;
+}
+
+#mainContent .underline-green {
+    background-color: transparent;
+    box-shadow: rgba(var(--green), var(--underlineOpacity)) 0px 2px 0px;
+}
+
+#mainContent .underline-blue {
+    background-color: transparent;
+    box-shadow: rgba(var(--blue), var(--underlineOpacity)) 0px 2px 0px;
+}
+
+#mainContent .underline-purple {
+    background-color: transparent;
+    box-shadow: rgba(var(--purple), var(--underlineOpacity)) 0px 2px 0px;
+}
+
+.shield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d0f1000;
+    transition: background-color var(--transitionDelay);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.leftShield {
+    z-index: 899;
+}
+
+.rightShield {
+    left: -100vw;
+    z-index: 799;
+}
+
+
+/* .open>.shield { */
+
+.shield.active {
+    background-color: #0d0f1080;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+
+/* CONTAINERS AND BARS */
+
+.container {
+    position: relative;
+    flex: 1;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.colContainer {
+    display: flex;
+    /* position: relative; */
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.colItem {
+    flex: 1;
+}
+
+.rowContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.flexRow {
+    flex: 1;
+}
+
+div.bar {
+    position: relative;
+    /* display: block; needs to be display:flex or have child colContainer */
+    flex-shrink: no;
+    background-color: var(--primary);
+    overflow: hidden;
+    height: var(--barHeight);
+    min-height: var(--barHeight);
+    line-height: var(--barHeight);
+    color: var(--on-primary);
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div.clear {
+    background-color: initial;
+}
+
+#_BUTTONS {}
+
+#asApp .button {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    border-radius: calc(var(--buttonHeight) / 2);
+    margin: auto;
+    min-width: var(--buttonHeight);
+    height: var(--buttonHeight);
+    line-height: var(--buttonHeight);
+    text-decoration: none;
+    text-align: center;
+    color: var(--on-primary);
+    background-color: var(--primary);
+    cursor: pointer;
+}
+
+#asApp .button:hover,
+#asApp .button:focus {
+    /* filter: brightness(125%); */
+    background-color: var(--primaryLight);
+    outline: 0;
+    /* background-color: var(--primaryDark); */
+}
+
+#asApp .button.hidden {
+    display: none;
+}
+
+
+/* Selection Menu */
+
+.icon-markStyle:after {
+    width: 20px;
+    height: 2px;
+    display: block;
+    background-color: var(--on-surface);
+    content: " ";
+    transform: translate(12px, -12px);
+}
+
+.icon-markStyle.highlight:after {
+    display: block;
+    width: 20px;
+    height: 13px;
+    background-color: var(--on-surface);
+    content: " ";
+    transform: translate(12px, -25px);
+    opacity: 35%;
+}
+
+#selectionMenu a.btnColor:before {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: rgba(var(--red));
+    content: " ";
+    transform: translate(10px, 10px);
+    /* opacity: 70%; */
+}
+
+#selectionMenu a.btnColor.underline:before {
+    width: 20px;
+    height: 2px;
+    /* border-radius: 50%; */
+    display: block;
+    background-color: rgba(var(--red));
+    content: " ";
+    transform: translate(11px, 20px);
+    /* opacity: 50%; */
+}
+
+#selectionMenu a.btnColor.red:before {
+    background-color: rgba(var(--red), var(--highlightOpacity));
+}
+
+#selectionMenu a.btnColor.orange:before {
+    background-color: rgba(var(--orange), var(--highlightOpacity));
+}
+
+#selectionMenu a.btnColor.yellow:before {
+    background-color: rgba(var(--yellow), var(--highlightOpacity));
+}
+
+#selectionMenu a.btnColor.green:before {
+    background-color: rgba(var(--green), var(--highlightOpacity));
+}
+
+#selectionMenu a.btnColor.blue:before {
+    background-color: rgba(var(--blue), var(--highlightOpacity));
+}
+
+#selectionMenu a.btnColor.purple:before {
+    background-color: rgba(var(--purple), var(--highlightOpacity));
+}
+
+
+/* .red .orange .yellow .green .blue .purple */
+
+
+/* FABs - FLOATING ACTION BUTTONS */
+
+#tabContentReader .bookmarkFabX {
+    visibility: hidden;
+}
+
+#tabContentReader.current .bookmarkFabX {
+    position: absolute;
+    visibility: visible;
+    /* right: calc(var(--barHeight) + 1rem); */
+    /* right: calc(var(--buttonHeight) + 1vw); */
+    left: -5px;
+    z-index: 90;
+}
+
+#tabContentReader #btnBookmarkFab {
+    position: fixed;
+    top: var(--barHeight);
+}
+
+#tabContentReader .leftFlipperX {
+    visibility: hidden;
+}
+
+#tabContentReader.current .leftFlipperX {
+    position: absolute;
+    visibility: visible;
+    /* left: -20px; */
+    left: -5px;
+    z-index: 90;
+}
+
+#tabContentReader .leftFlipperY {
+    position: fixed;
+    top: 45%;
+    padding-left: 5px;
+}
+
+#tabContentReader .rightFlipperX {
+    visibility: hidden;
+}
+
+#tabContentReader.current .rightFlipperX {
+    position: absolute;
+    visibility: visible;
+    /* right: 6px; */
+    right: var(--buttonHeight);
+    /* right: calc(var(--buttonHeight) + 1vw); */
+    z-index: 90;
+}
+
+#tabContentReader .rightFlipperY {
+    position: fixed;
+    top: 45%;
+}
+
+#tabContentReader .bottomRightFabX {
+    visibility: hidden;
+}
+
+#tabContentReader.current .bottomRightFabX {
+    position: absolute;
+    visibility: visible;
+    /* right: calc(var(--barHeight) + 1rem); */
+    right: calc(100vw * .03 + var(--barHeight));
+}
+
+#tabContentReader .btnAudioFab {
+    position: fixed;
+    min-width: 4rem;
+    min-height: 4rem;
+    border-radius: 2rem;
+    bottom: calc(100vw * .03);
+    font-size: 2rem;
+    line-height: 4rem;
+    transition: bottom var(--transitionDelay);
+    z-index: 90;
+}
+
+#tabContentReader .btnAudioFab.lowered {
+    position: fixed;
+    bottom: -4rem;
+}
+
+#tabContentReader .btnAddBookFab {
+    position: fixed;
+    bottom: calc(100vw * .03);
+    min-width: 4rem;
+    min-height: 4rem;
+    border-radius: 2rem;
+    font-size: 2rem;
+    line-height: 4rem;
+    transition: bottom var(--transitionDelay);
+    z-index: 90;
+}
+
+#asApp .button.transparent {
+    color: var(--on-surface);
+    background-color: transparent;
+}
+
+#asApp .button.transparent:hover,
+#asApp .button.transparent:focus {
+    color: var(--on-surface);
+    background-color: var(--secondaryLight);
+}
+
+#_VERTICAL_MENU {}
+
+#asApp .verticalMenu {
+    /* flex: 1; */
+    padding-bottom: 5rem;
+    /* margin: 1rem; */
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    /* align-items: stretch; */
+    box-sizing: border-box;
+}
+
+#asApp .verticalMenu a {
+    padding: 15px;
+    text-decoration: none;
+    color: var(--on-surface);
+    display: block;
+    cursor: pointer;
+    /* transition: var(--transitionDelay); */
+    text-align: left;
+    box-sizing: border-box;
+}
+
+#asApp .verticalMenu a:hover {
+    background-color: var(--secondaryLight);
+    box-sizing: border-box;
+}
+
+#asApp .verticalMenu a.selected {
+    background-color: var(--secondary);
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+#_TABS {}
+
+#asApp .tab {
+    flex: 1;
+    margin-bottom: 0px;
+    display: inline-block;
+    min-width: var(--barHeight);
+    height: var(--barHeight);
+    line-height: var(--barHeight);
+    margin: auto;
+    background: no-repeat center;
+    background-size: calc( .65 * var(--buttonHeight));
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    /* transition: border-bottom var(--transitionDelay); */
+    box-sizing: border-box;
+}
+
+#asApp .tab:hover,
+#asApp .tab:focus {
+    outline: 0;
+    background-color: var(--secondaryLight);
+}
+
+#asApp .tab.current {
+    font-weight: bold;
+    border-bottom: 5px solid var(--primary);
+    /* border-bottom: 5px solid var(--on-primary); */
+}
+
+#asApp .tabContentContainer {}
+
+#asApp .tabContent {
+    flex: 1;
+    max-width: 0;
+    height: 100%;
+    overflow: hidden;
+    transition: max-width var(--transitionDelay);
+}
+
+#asApp .tabContent.current {
+    max-width: 100%;
+}
+
+#_Bookmarks {}
+
+#tabContentBookmarks div.bookmarkMenu {
+    box-sizing: border-box;
+    padding-bottom: 5rem;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+}
+
+#tabContentBookmarks a.bookmark {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    height: 4rem;
+    padding: .5rem;
+    text-decoration: none;
+    color: var(--on-surface);
+    text-align: left;
+    cursor: pointer;
+    /* transition: var(--transitionDelay); */
+}
+
+#tabContentBookmarks a.bookmark:hover {
+    background-color: var(--secondaryLight);
+}
+
+#tabContentBookmarks a span.bookmarkBookmarkTitle {
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+}
+
+#tabContentBookmarks a span.bookmarkBookmarkTitle::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: icon;
+    font-size: 1.5rem;
+    content: '\e923';
+}
+
+#tabContentBookmarks a span.bookmarkPageTitle,
+#tabContentBookmarks a span.bookmarkBookTitle {
+    position: relative;
+    top: -10px;
+    padding-left: 30px;
+    margin: 0;
+    width: 90%;
+    line-height: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-size: .85rem;
+    font-style: italic;
+}
+
+#_RECENTS {}
+
+#tabContentRecent div.recentMenu {
+    padding-bottom: 5rem;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+#tabContentRecent h2.recentDate {
+    display: block;
+    margin: 0;
+    border-bottom: 2px solid var(--secondary);
+    padding: .5rem;
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    font-family: var(--appFont);
+    font-size: 1.15rem;
+    text-align: left;
+}
+
+#tabContentRecent a.recent {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    height: 3.5rem;
+    padding: .5rem;
+    text-decoration: none;
+    color: var(--on-surface);
+    text-align: left;
+    cursor: pointer;
+    /* transition: var(--transitionDelay); */
+}
+
+#tabContentRecent a.recent:hover {
+    background-color: var(--secondaryLight);
+}
+
+#tabContentRecent span.recentPageTitle {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    padding-left: 25px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+}
+
+#tabContentRecent span.recentPageTitle:before {
+    position: relative;
+    top: 3px;
+    transform: translate(20px, 5px);
+    margin-left: -25px;
+    margin-right: 5px;
+    font-family: icon;
+    font-size: 1.5rem;
+    content: '\e933';
+}
+
+#tabContentRecent span.recentBookTitle {
+    box-sizing: border-box;
+    /* display: block; */
+    position: relative;
+    top: -3px;
+    padding-left: 25px;
+    margin: 0;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.5rem;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-size: .85rem;
+    font-style: italic;
+}
+
+#_NOTES_AND_HIGHLIGHTS {}
+
+#tabContentNotes div.noteMenu {
+    box-sizing: border-box;
+    padding: 0 0 5rem 0;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+}
+
+#tabContentNotes div.note {
+    --headerHeight: 4;
+    --maxLines: 3;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    margin: 0;
+    border-bottom: 2px solid var(--secondary);
+    padding: .5rem .5rem .5rem 1rem;
+    max-height: calc( (var(--headerHeight) + var(--maxLines)) * var(--smallLineHeight));
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#tabContentNotes div.note:hover,
+#tabContentNotes div.note.active {
+    background-color: var(--secondaryLight);
+}
+
+#tabContentNotes div.noteMenu.full div.note,
+#tabContentNotes div.note.full {
+    max-height: initial;
+}
+
+#tabContentNotes div.noteBar {
+    box-sizing: border-box;
+    position: relative;
+    margin: 0;
+    height: var(--barHeight);
+    line-height: var(--barHeight);
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+}
+
+#tabContentNotes a.noteLink {}
+
+#tabContentNotes span.pageTitle {
+    position: relative;
+    display: block;
+    padding: .5rem 0 0 0;
+    line-height: var(--smallLineHeight);
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+}
+
+#tabContentNotes span.bookTitle {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding-top: .1rem;
+    line-height: var(--smallLineHeight);
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-size: .85rem;
+    font-style: italic;
+}
+
+#tabContentNotes span.noteDate {
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    display: block;
+    width: 80%;
+    padding-left: 20px;
+    font-size: .85rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#tabContentNotes span.noteDate:before {
+    margin-left: -20px;
+    margin-right: 5px;
+    font-family: icon;
+    font-size: 1rem;
+    content: '\e92e';
+}
+
+#tabContentNotes div.noteTitle {
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-weight: bold;
+    /* padding-bottom: .5rem; */
+}
+
+#tabContentNotes div.noteBody,
+#tabContentNotes div.noteBody p {
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-size: .85rem;
+    line-height: 1.15rem;
+    margin-bottom: .5rem;
+    box-sizing: border-box;
+}
+
+#_NOTE_EDITOR {}
+
+#tabContentNotes div.noteEditor {
+    flex: 1;
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    /* transition: all var(--transitionDelay); */
+}
+
+#tabContentNotes.editMode div.noteEditor {
+    max-height: 100%;
+    padding: .5rem;
+    border-bottom: 1px solid var(--secondary);
+}
+
+#tabContentNotes.editMode div.noteList {
+    max-height: 0;
+    padding: 0;
+}
+
+#tabContentNotes #noteEditorForm {
+    height: 100%;
+}
+
+#tabContentNotes input[type=text] {
+    box-sizing: border-box;
+    width: 100%;
+    margin: .5rem 0 .5rem 0;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    border: 1px solid var(--secondary);
+    outline-color: var(--primary);
+}
+
+#tabContentNotes textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    min-height: 8rem;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    border: 1px solid var(--secondary);
+    outline-color: var(--primary);
+}
+
+#_SEARCH_RESULTS {}
+
+#tabContentSearch form {
+    height: 100%;
+    width: 100%;
+}
+
+#tabContentSearch div.searchMenu {
+    max-height: calc(100vh - (var(--barHeight)*3));
+}
+
+#tabContentSearch a.searchResult {
+    --headerHeight: 4;
+    --maxLines: 3;
+    display: block;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    color: var(--on-surface);
+    text-decoration: none;
+    padding: .5rem;
+    border-bottom: 2px solid var(--secondary);
+    max-height: calc((var(--headerHeight) + var(--maxLines)) * var(--appLineHeight));
+    overflow: hidden;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#tabContentSearch a.searchResult:hover {
+    background-color: var(--secondaryLight);
+}
+
+#tabContentSearch div.resultTitle {
+    box-sizing: border-box;
+    margin: 0;
+    padding-bottom: 0;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-weight: bold;
+}
+
+#tabContentSearch span.resultParent {
+    display: block;
+    padding-bottom: .5rem;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-style: italic;
+}
+
+#tabContentSearch span.resultText {
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 1.5rem;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-size: .85rem;
+    line-height: 1.15rem;
+    margin-bottom: .5rem;
+}
+
+#_AUDIO_PLAYER {}
+
+#audioPlayer .player {
+    border: 1px solid var(--surface);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#audioPlayer .audioLabel {
+    min-width: var(--barHeight);
+    text-align: center;
+}
+
+#audioPlayer .audioSlider,
+#audioPlayer input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    width: 100%;
+    height: .25rem;
+    margin: auto;
+    background: var(--on-secondary);
+    outline: none;
+    /* filter: opacity(90%); */
+}
+
+
+/* #audioPlayer .audioSlider::-webkit-slider-thumb */
+
+#audioPlayer ::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: .5rem;
+    background: var(--on-secondary);
+    cursor: pointer;
+}
+
+
+/* #audioPlayer .audioSlider::-moz-range-thumb */
+
+#audioPlayer ::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--on-secondary);
+    cursor: pointer;
+}
+
+#audioPlayer #volumeSlider {
+    position: absolute;
+    width: 18rem;
+    height: var(--barHeight);
+    top: var(--barHeight);
+    left: var(--buttonHeight);
+    background-color: var(--secondary);
+    box-shadow: 0 0 20px var(--on-secondary);
+}
+
+#_MATCHING {}
+
+#matchingContainer {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    /* overflow-y: scroll; */
+    display: grid;
+    /* grid-gap: 1rem; */
+    column-gap: 1rem;
+    row-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+
+#matchingContainer.finished {
+    display: block;
+}
+
+#matchingContainer .card {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary);
+    border: 1px solid var(--on-surface);
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin: auto;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#matchingContainer .card.ready:hover {
+    background-color: var(--surface);
+}
+
+#matchingContainer .card.selected {
+    color: var(--on-primary);
+    background-color: var(--primaryLight);
+    border-color: var(--primary);
+    border-width: 3px;
+}
+
+#matchingContainer .card.correct {
+    background-color: rgba(var(--green));
+    color: var(--surface);
+    border-color: var(--secondary);
+}
+
+#matchingContainer .card.incorrect {
+    background-color: rgba(var(--red));
+    color: var(--surface);
+    border-color: var(--secondary);
+}
+
+#matchingContainer .card.done {
+    color: rgba(var(--green));
+}
+
+#matchingContainer .card img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    max-height: 60%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    opacity: 30%;
+    box-sizing: border-box;
+}
+
+#matchingContainer .card div,
+#matchingContainer .card span {
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    margin: auto;
+    /* border: 1px solid cyan; */
+    padding: .5rem;
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    text-align: center;
+    font-family: var(--appFont);
+    font-size: 1rem;
+    /* color: var(--on-surface); */
+}
+
+#_FLASHCARDS {}
+
+#flashContainer {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    /* perspective: 1000px; */
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0 0 1rem 0;
+}
+
+.topRow {
+    /* height: var(--barHeight); */
+}
+
+#flashProgress {
+    margin: 1rem 2rem;
+    height: 3rem;
+}
+
+.progressShell {
+    position: relative;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.progressValue {
+    margin: auto;
+    width: 100px;
+    text-align: center;
+    color: var(--on-surface);
+    z-index: 1;
+}
+
+.progressBar {
+    position: relative;
+    padding: 0px;
+    background-color: var(--primary);
+    width: 0%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 1s;
+}
+
+.progressDetail {
+    margin-top: .25rem;
+    font-size: 85%;
+}
+
+.cardRow {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0rem 2rem 2rem 2rem;
+}
+
+#flashCard {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform var(--transitionDelay);
+    /* transform-style: preserve-3d; */
+    cursor: pointer;
+    /*  */
+    perspective: 1000px;
+}
+
+#flashInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    /* transition: transform 0.8s; */
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+}
+
+#flashFront,
+#flashBack {
+    position: absolute;
+    background-color: var(--surface);
+    /* height: calc(100% - 4rem); */
+    height: 100%;
+    width: 100%;
+    /* calc(100% - 50px); */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--on-surface);
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: x-large;
+    text-align: center;
+}
+
+#flashBack {
+    background-color: var(--surface);
+    transform: rotateY( 180deg);
+}
+
+#flashCard.active #flashInner {
+    transform: rotateY( 180deg);
+}
+
+#flashBackBorder,
+#flashFrontBorder {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#flashFrontBorder {
+    border: 5px solid var(--secondary);
+    border-radius: 10px;
+}
+
+#flashBackBorder {
+    border: 5px dashed var(--secondary);
+    border-radius: 10px;
+}
+
+#flashBackContent,
+#flashFrontContent {
+    margin: auto;
+    max-height: 85%;
+    overflow: hidden;
+    box-sizing: border-box;
+    line-height: var(--crsLineHeight);
+}
+
+#flashNav {
+    position: relative;
+    flex-shrink: no;
+    height: var(--barHeight);
+    min-height: var(--barHeight);
+    line-height: var(--barHeight);
+    width: 100%;
+    padding: 0rem 2rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#numIncorrect,
+#numCorrect {
+    position: relative;
+    height: var(--buttonHeight);
+    line-height: var(--buttonHeight);
+    font-size: x-large;
+    color: var(--on-surface);
+}
+
+#btnIncorrect {
+    background: rgba(var(--red));
+    color: var(--on-error);
+    font-size: x-large;
+    line-height: 1rem;
+    width: 100%;
+    height: var(--buttonHeight);
+    border-radius: 2px;
+}
+
+#btnIncorrect:hover,
+#btnCorrect:hover {
+    filter: brightness(115%);
+}
+
+#btnCorrect {
+    background: rgba(var(--green));
+    color: var(--on-error);
+    font-size: x-large;
+    line-height: var(--buttonHeight);
+    width: 100%;
+    height: var(--buttonHeight);
+    z-index: 1;
+}
+
+#asApp button.systemBtn {
+    position: relative;
+    display: inline-block;
+    margin: 0.5rem auto;
+    padding: .5rem 1rem;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px var(--on-surface);
+}
+
+#asApp button.systemBtn.primary {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+#asApp button.systemBtn.primary:hover,
+#asApp button.systemBtn.primary:focus {
+    background-color: var(--primaryLight);
+}
+
+#asApp button.systemBtn.secondary {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+}
+
+#asApp button.systemBtn.secondary:hover,
+#asApp button.systemBtn.secondary:focus {
+    background-color: var(--secondaryLight);
+}
+
+#asApp button.systemBtn.outlined {
+    background-color: var(--surface);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+#asApp button.systemBtn.outlined:hover,
+#asApp button.systemBtn.outlined:focus {
+    background-color: var(--secondary);
+}
+
+#_CUSTOM_DIALOGS {}
+
+#customDialog {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 950;
+}
+
+#customDialog div {
+    /* padding: .25rem; */
+}
+
+#customDialog input[type=text] {
+    box-sizing: border-box;
+    width: 100%;
+    margin: .5rem 0 .5rem 0;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    border: 1px solid var(--secondary);
+    outline-color: var(--primary);
+}
+
+#customDialog textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 8rem;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    border: 1px solid var(--secondary);
+    outline-color: var(--primary);
+}
+
+#customDialog .cdBox {
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px var(--on-surface);
+    background-color: var(--surface);
+    color: var(--on-surface);
+    padding: 1rem;
+    width: 300px;
+    max-width: 90%;
+    max-height: 80%;
+    /* border: 1px solid red; */
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#customDialog .cdTitle,
+#asBody .cdTitle {
+    font-weight: bold;
+}
+
+#customDialog .cdBody,
+#asBody .cdBody {
+    max-height: calc(80vh - 6rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+#customDialog .cdButtons,
+#asBody .cdButtons {
+    /* padding-top: 1rem; */
+    text-align: right;
+}
+
+#toast {
+    visibility: hidden;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 300px;
+    padding: 20px;
+    font-size: var(--appFontSize);
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    box-shadow: 0 0 20px var(--on-surface);
+    opacity: 0;
+    /* transition: opacity 1s, visibility 1s; */
+    transition: opacity var(--transitionDelay), visibility var(--transitionDelay);
+    z-index: 950;
+}
+
+#toast.bottom {
+    top: unset;
+    bottom: 5%;
+}
+
+#toast.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transitionDelay);
+}
+
+#toast.warning {
+    color: var(--on-error);
+    background-color: var(--error);
+}
+
+#asApp img.zoomImage {
+    position: relative;
+    top: 50%;
+    /* left: 50px; */
+    /* width: 200px; */
+    transform: translate(0%, -50%);
+    width: 100%;
+}
+
+#_IMAGE_VIEWER {}
+
+#viewContainer {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #bdbdbd;
+    background-color: #000000;
+}
+
+#asApp>#viewContainer {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 955;
+}
+
+#slideContainer {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+#viewContainer div.slide {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+#viewContainer div.slide.left {
+    left: -100%;
+    transition: left var(--transitionDelay);
+}
+
+#viewContainer div.slide.active {
+    left: 0;
+    transition: left var(--transitionDelay);
+}
+
+#viewContainer div.slide.right {
+    left: 100%;
+    transition: left var(--transitionDelay);
+}
+
+#viewContainer div.slide>div.imgScroll {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#viewContainer div.imgScroll>img {
+    position: absolute;
+    z-index: 0;
+    /* width: 100%; */
+}
+
+#viewContainer div.slide>div.caption {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    padding: .5rem 3rem .5rem 1rem;
+    min-height: var(--barHeight);
+    width: 100%;
+    font-family: var(--appFont);
+    font-size: 1rem;
+    font-style: italic;
+    color: #bdbdbd;
+    background-color: #000000;
+    max-height: 0px;
+    visibility: hidden;
+    overflow-y: auto;
+    cursor: pointer;
+    transition: max-height var(--transitionDelay);
+    /* background-color: rgba( 0, 0, 0, .3); */
+}
+
+#viewContainer.captionOn div.slide>div.caption {
+    visibility: unset;
+    max-height: 6rem;
+    text-align: center;
+}
+
+#viewContainer.captionOn div.slide>div.caption.pinned {
+    height: var(--barHeight);
+}
+
+#viewContainer>button.button.transparent {
+    position: absolute;
+    transform: translate(-50, -50%);
+    color: #FFFFFF;
+    background-color: #80808078;
+}
+
+#viewContainer>button.button.transparent:hover,
+#viewContainer>button.button.transparent:focus {
+    color: #FFFFFF;
+    background-color: #00000050;
+}
+
+#btnZoomIn {
+    top: 0;
+    left: 0;
+}
+
+#btnZoomOut {
+    top: var(--buttonHeight);
+    left: 0rem;
+}
+
+#viewContainer.multiSlide #btnPrevSlide {
+    top: 50%;
+    left: 0rem;
+}
+
+#viewContainer.multiSlide #btnNextSlide {
+    top: 50%;
+    right: 0rem;
+}
+
+#btnFullscreen {
+    top: 0;
+    /* right: calc( var(--buttonHeight) + 1rem); */
+    right: var(--buttonHeight);
+}
+
+#btnCloseViewer {
+    top: 0;
+    /* right: 1rem; */
+    right: 0;
+}
+
+#btnShowCaption {
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+#viewContainer.multiSlide #navDots {
+    position: absolute;
+    padding: 1rem;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#navDots>button.navDot {
+    min-height: 0px;
+    min-width: 0px;
+    height: 1rem;
+    width: 1rem;
+    border-radius: .5rem;
+    background-color: #bdbdbd;
+    filter: opacity(.5);
+}
+
+#navDots>button.navDot:hover,
+#navDots>button.navDot:focus {
+    background-color: #bdbdbd;
+    filter: opacity(1);
+}
+
+#navDots>button.navDot.active {
+    background-color: #bdbdbd;
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 0.625rem;
+    transform: translate(0, 0.125rem);
+    filter: opacity(1);
+}
+
+#_MEDIA_RULES {}
+
+@media print {
+    div.leftPanel,
+    div.rightPanel,
+    div.bottomPanel,
+    div.bar,
+    div.moreMenu,
+    div.feedbackForm,
+    button.button,
+    a.button {
+        display: none;
+    }
+    a.actionBtn,
+    button.actionBtn {
+        color: var(--hyperlink);
+    }
+    body {
+        -webkit-print-color-adjust: exact !important;
+        height: auto;
+        width: auto;
+    }
+}
+
+@media (min-width:601px) {
+     :root {
+        --barHeight: 3rem;
+    }
+    #asApp .rightDrawer {
+        position: absolute;
+        width: 100%;
+    }
+    #asApp .rightPanel.open {
+        min-width: 200px;
+        max-width: 350px;
+    }
+    #asApp .centerPanel {
+        min-width: 400px;
+    }
+    /* .open>.rightShield { */
+    #OLD.rightShield.active {
+        background-color: #0d0f1000;
+        background-color: cyan;
+        pointer-events: none;
+    }
+}
+
+@media (min-width:800px) {
+    #asApp .leftDrawer {
+        position: relative;
+        width: 100%;
+    }
+    #asApp .leftPanel.open {
+        min-width: 200px;
+        max-width: 300px;
+    }
+    /* .open>.leftShield { */
+    #OLD.leftShield.active {
+        background-color: #0d0f1000;
+        background-color: yellow;
+        pointer-events: none;
+    }
+    /* #mainContent .cardContainer {
+        grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    }
+    #mainContent .bookCard {
+        height: 13rem;
+        padding: .5rem;
+        border-radius: 5px;
+    } */
+}
+
+@media(min-width:900px) {
+    #mainContent {
+        max-width: 700px;
+    }
+}
+
+
+/* main {
+    max-width: 800px;
+    margin: auto;
+    padding: 0.5rem;
+    padding-top: 3.3rem;
+    text-align: center;
+    box-sizing: border-box;
+    perspective: 1000px;
+} */
+
+#mainContent .cardContainer {
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 10rem);
+    grid-auto-rows: min-content;
+    align-items: center;
+    justify-content: center;
+    margin: 0 -2.5rem;
+    padding: 1rem;
+    /* background-color: var(--secondary); */
+}
+
+#mainContent a.bookCard {
+    display: block;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    height: 11.5rem;
+    background: var(--surface);
+    padding: 0;
+    box-shadow: 0 0 10px var(--on-surface);
+    border-radius: 5px;
+    margin: auto;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--on-surface);
+}
+
+#mainContent a.bookCard:hover,
+#mainContent a.bookCard:focus {
+    width: 102%;
+    /* height: 11.75rem; */
+    box-shadow: 0 0 40px var(--on-surface);
+}
+
+#mainContent img.cardImage {
+    width: 100%;
+    height: 7rem;
+    object-fit: cover;
+    object-position: center top;
+}
+
+#mainContent span.cardTitle {
+    display: block;
+    height: 3rem;
+    margin: .5rem;
+    padding: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    line-height: inherit;
+    /* color: var(--primary); */
+}
+
+
+/* More Menu */
+
+#asApp .btnMore {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    color: var(--on-surface);
+    background-color: var(--surface);
+    text-decoration: none;
+}
+
+#asApp .btnMore:hover {
+    background-color: var(--secondaryLight);
+}
+
+#asApp .bookCard .btnMore {
+    visibility: hidden;
+    color: white;
+    background-color: #80808078;
+}
+
+#asApp .bookCard:hover .btnMore {
+    visibility: visible;
+}
+
+#asApp .moreShield {
+    z-index: 950;
+}
+
+#asApp .moreShield.active {
+    background-color: #0d0f1000;
+    pointer-events: auto;
+}
+
+#asApp .moreMenu {
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    /* right: 0; */
+    max-height: 100%;
+    min-width: 9rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    box-sizing: border-box;
+    background-color: var(--surface);
+    border: 1px solid var(--secondary);
+    box-shadow: 0 0 20px var(--on-surface);
+    display: inline-block;
+    z-index: 951;
+}
+
+#asApp .active .moreMenu {
+    visibility: visible;
+}
+
+#asApp .moreMenu a {
+    padding: 10px;
+    text-decoration: none;
+    color: var(--on-surface);
+    display: block;
+    cursor: pointer;
+    /* transition: var(--transitionDelay); */
+    text-align: left;
+}
+
+#asApp .moreMenu a:hover {
+    background-color: var(--secondaryLight);
+}
+
+#selectionShield.shield {
+    z-index: 950;
+    width: 100%;
+}
+
+#selectionShield.shield.active {
+    background-color: #0d0f1000;
+    pointer-events: auto;
+}
+
+#selectionMenu {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* max-height: 100%;
+    min-width: 100px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    box-sizing: border-box; */
+    background-color: var(--surface);
+    border: 1px solid var(--secondary);
+    box-shadow: 0 10px 20px var(--on-surface);
+    display: inline-block;
+    z-index: 951;
+}
+
+#selectionShield.shield.active .menu,
+#selectionMenu.active {
+    visibility: visible;
+}
+
+#selectionMenu a {
+    /* padding: 10px; */
+    text-decoration: none;
+    color: var(--on-surface);
+    display: block;
+    cursor: pointer;
+    /* transition: var(--transitionDelay); */
+    text-align: left;
+}
+
+#selectionMenu a:hover {
+    background-color: var(--secondaryLight);
+    color: var(--on-surface);
+}
+
+div.barLabel {
+    display: inline-block;
+    align-items: stretch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    height: var(--buttonHeight);
+    line-height: var(--buttonHeight);
+    margin: auto;
+    padding-left: 0.75rem;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+#_LANGUAGE {}
+
+span.mouseover,
+span.langHelp {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-style: italic;
+    text-decoration: underline dotted var(--primary);
+}
+
+span.mouseover {
+    text-decoration: underline dotted var(--hyperlink);
+}
+
+span.mouseover>span,
+span.langHelp>span {
+    visibility: hidden;
+    background-color: var(--secondary);
+    color: var(--on-surface);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 120%;
+    left: 0;
+    z-index: 1;
+}
+
+span.mouseover:hover>span,
+span.langHelp:hover>span {
+    visibility: visible;
+}
+
+div.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100vw; */
+    /* height: 100vh; */
+    background-color: #0d0f1000;
+    transition: background-color var(--transitionDelay);
+    pointer-events: none;
+    visibility: hidden;
+    padding: 2rem;
+}
+
+div.overlay.active {
+    visibility: visible;
+}
+
+div.overlayContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--on-surface);
+    padding: 1rem;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    color: var(--on-surface);
+    background: var(--surface);
+}
+
+div.callout {
+    border: 1px solid var(--hyperlink);
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+}
+
+div.callout>h2,
+div.callout>h3,
+div.callout>h4,
+div.callout>h5,
+div.callout>h6,
+div.callout>button {
+    box-sizing: border-box;
+    color: var(--surface);
+    background-color: var(--hyperlink);
+    padding: 1rem 0.5rem;
+    margin: 0 0 1rem 0;
+    width: 100%;
+    text-align: left;
+}
+
+div.callout p:nth-child(1) {
+    padding: 1rem 0.05rem;
+}
+
+div.callout>:not(h2):not(h3):not(h4):not(h5):not(h6):not(button) {
+    margin: 0 1rem;
+}
+
+div.callout.primary {
+    border-color: var(--primary);
+}
+
+div.callout.primary>h2,
+div.callout.primary>h3,
+div.callout.primary>h4,
+div.callout.primary>h5,
+div.callout.primary>h6 {
+    color: var(--on-primary);
+    background-color: var(--primary);
+}
+
+div.callout.secondary {
+    border-color: var(--secondary);
+}
+
+div.callout.secondary>h2,
+div.callout.secondary>h3,
+div.callout.secondary>h4,
+div.callout.secondary>h5,
+div.callout.secondary>h6 {
+    color: var(--on-secondary);
+    background-color: var(--secondary);
+}
+
+#mainContent div.video {
+    position: relative;
+    border: 2px solid var(--on-surface);
+    margin: 2rem auto;
+    max-width: 100%;
+    width: 50vh;
+    height: 28vh;
+    background-color: var(--surface);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#mainContent div.video>div.videoTitle {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem;
+    color: var(--surface);
+    background: linear-gradient(var(--on-surface), var(--on-surface), var(--on-surface), transparent);
+    /* background: linear-gradient(#00000098, #00000098, #00000098, transparent); */
+    padding-bottom: 3.5rem;
+    opacity: 70%;
+    z-index: 2;
+}
+
+#mainContent div.video>img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 70%;
+    z-index: 1;
+}
+
+#mainContent div.video>a.icon-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    font-size: 3rem;
+    z-index: 5;
+}
+
+#mainContent div.video>a.icon-download {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+}
+
+#mainContent div.video>a.icon-closedCaption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+}
+
+div.dropdown,
+div.accordion {
+    border: 1px solid var(--secondary);
+    margin: 2rem 0;
+    /* padding-bottom: 1rem; */
+}
+
+div.dropdown>button,
+div.accordion>button {
+    box-sizing: border-box;
+    color: var(--on-secondary);
+    background-color: var(--secondary);
+    padding: 1rem 0.5rem;
+    /* margin: 0 0 1rem 0; */
+    width: 100%;
+    text-align: left;
+    font-size: var(--crsFontSize);
+}
+
+div.dropdown>button:hover,
+div.accordion>button:hover {
+    background-color: var(--secondaryLight);
+}
+
+div.dropdown.primary,
+div.accordion.primary {
+    border: 1px solid var(--primary);
+}
+
+div.dropdown.primary>button,
+div.accordion.primary>button {
+    color: var(--on-primary);
+    background-color: var(--primary);
+}
+
+div.dropdown.primary>button:hover,
+div.accordion.primary>button:hover {
+    background-color: var(--primaryLight);
+}
+
+div.dropdown>button::before,
+div.accordion>button::before {
+    content: "\e916";
+    font-family: 'icon';
+    font-size: 1.5rem;
+    padding: 0 .5rem;
+}
+
+div.dropdown>button.active::before,
+div.accordion>button.active::before {
+    content: "\e946";
+}
+
+div.dropdown>div,
+div.accordion>div {
+    margin: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+}
+
+div.dropdown>div.active,
+div.accordion>div.active {
+    max-height: unset;
+    overflow: unset;
+    transition: max-height .3s;
+}
+
+#mainContent #frontCover {
+    margin: auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+#mainContent #footer {
+    font-size: .7em;
+    padding-top: 5px;
+    text-align: center;
+}
+
+#mainContent #footer::before {
+    background: linear-gradient( 90deg, transparent 15%, #b7b7b7 30%, #b7b7b7 70%, transparent 85%);
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: 3px;
+    width: 100%;
+}
+
+#_MASTERY {}
+
+#mainContent p.hsQuestion {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    /* padding-top: 1rem; */
+    padding-left: 2.5rem;
+    margin: 1rem 0 1rem 0;
+    /* margin-left: 1.5rem; */
+    /* left: -1rem; */
+    font-weight: bold;
+}
+
+#mainContent p.hsQuestion::before {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* position: relative; */
+    /* left: -.5rem; */
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    content: "?";
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid var(--on-surface);
+}
+
+#mainContent p.hsQuestion:hover::before {
+    background-color: var(--secondaryLight);
+}
+
+#mainContent p.hsQuestion.active::before {
+    background-color: rgb(var(--green));
+    font-family: 'icon';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--on-error);
+    content: "\e91a";
+}
+
+#mainContent p.hsQuestion.active:hover::before {
+    filter: brightness(125%);
+}
+
+#mainContent p.hsResponse {
+    margin: -.5rem 0 0 2.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .3s;
+    border: 0;
+    padding: 0;
+}
+
+#mainContent p.hsResponse.active {
+    max-height: unset;
+    overflow: unset;
+}
+
+#mainContent p.mcQuestion {
+    position: relative;
+    counter-reset: listStyle;
+    list-style-type: none;
+    padding-top: 1rem;
+    font-weight: bold;
+}
+
+#mainContent button.mcOption {
+    display: block;
+    margin: 1rem;
+    margin-left: 0;
+    border: 1px solid var(--on-surface);
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: left;
+    width: 100%;
+    /* max-width: 300px; */
+}
+
+#mainContent .mcOption {
+    cursor: pointer;
+    counter-increment: listStyle;
+    padding: .25rem;
+    margin: .5rem 0rem .5rem 2rem;
+}
+
+#mainContent .mcOption:before {
+    display: inline-block;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 1px solid var(--on-surface);
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    content: counter(listStyle, upper-alpha);
+    text-align: center;
+}
+
+#mainContent .mcOption:hover::before {
+    background-color: var(--secondary);
+}
+
+#mainContent .noCorrect .mcOption.selected::before {
+    content: "\e95d";
+    font-family: 'icon';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--on-surface);
+    background-color: var(--surface);
+}
+
+#mainContent .mcOption.selected::before {
+    content: "\e90f";
+    font-family: 'icon';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--on-error);
+    background-color: rgb(var(--red));
+}
+
+#mainContent .mcOption.selected:hover::before {
+    filter: brightness(125%);
+}
+
+#mainContent .mcOption.selected.mcCorrect::before {
+    content: "\e91a";
+    font-family: 'icon';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--on-error);
+    background-color: rgb(var(--green));
+}
+
+#star {
+    visibility: hidden;
+    position: absolute;
+    right: 28%;
+    bottom: 1.3rem;
+    display: inline-block;
+    font-size: 2rem;
+    color: #ffcc00;
+    z-index: 0;
+    /* animation: jump .3s 1; */
+}
+
+#mainContent .LaTeXError {
+    background-color: var(--secondary);
+    line-height: 2;
+    padding: .5rem;
+}
+
+@keyframes jump {
+    0% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+    20% {
+        transform: translate3d(100%, -100%, 0) scale3d(1.2, 1.2, 1.2) rotate(45deg);
+    }
+    40% {
+        transform: translate3d(150%, -150%, 0) scale3d(1.6, 1.6, 1.6) rotate(90deg);
+    }
+    60% {
+        transform: translate3d(200%, -170%, 0) scale3d(1.6, 1.6, 1.6) rotate(135deg);
+    }
+    80% {
+        transform: translate3d(220%, -70%, 0) scale3d(1.2, 1.2, 1.2) rotate(180deg);
+    }
+    100% {
+        transform: translate3d(220%, 30%, 0) scale3d(1, 1, 1);
+    }
+}
+
+#mainContent .longAnswer p,
+#mainContent .shortAnswer p {
+    margin-bottom: 0;
+    padding-bottom: .5rem;
+}
+
+#mainContent .shortAnswer input {
+    margin: 0;
+    padding: 4px;
+}
+
+#_SETTINGS {}
+
+div.settingContent {
+    position: relative;
+    padding: 2rem 2rem 6rem 2rem;
+    margin: auto;
+    max-width: 600px;
+    box-sizing: border-box;
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    color: var(--on-surface);
+    background-color: var(--surface);
+}
+
+div.settingContent h2 {
+    font-family: var(--appFont);
+    font-size: var(--appFontSize);
+    font-weight: bold;
+    margin: 1.5rem .5rem .5rem 0;
+    color: var(--on-surface);
+}
+
+div.setting {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    padding: 0 1rem;
+    min-height: var(--buttonHeight);
+    text-align: left;
+    text-decoration: none;
+    color: var(--on-surface);
+}
+
+div.setting>label {
+    display: inline-block;
+    flex: 1;
+    line-height: 1rem;
+    padding: calc((var(--buttonHeight) - 1rem) / 2) 0;
+    cursor: pointer;
+}
+
+
+/* CSS-Only Switch Checkbox - Best (if browser testing checks out) */
+
+input[type="checkbox"].switch {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    min-width: 3rem;
+    /* width: var(--buttonHeight); */
+    height: var(--buttonHeight);
+    line-height: var(--buttonHeight);
+    outline: 0;
+    cursor: pointer;
+}
+
+input[type="checkbox"].switch::before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Icon';
+    font-size: 3rem;
+    content: '\e93b';
+    color: var(--on-surface);
+    z-index: 1;
+}
+
+input[type="checkbox"].switch:hover,
+input[type="checkbox"].switch:focus {
+    filter: brightness(90%);
+    /* text-shadow: 0 0 6px var(--primary); */
+}
+
+input[type="checkbox"].switch:hover::after,
+input[type="checkbox"].switch:focus::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Icon';
+    font-size: 3.25rem;
+    content: '\e93c';
+    color: var(--primary);
+    z-index: 0;
+}
+
+input[type="checkbox"].switch:checked::before {
+    content: '\e93c';
+    color: var(--primary);
+}
+
+#asApp .largeInput {
+    font-size: 115%;
+    height: 2.5rem;
+}
+
+
+/* Radio Buttons */
+
+#asApp .ratingScale.stars input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    min-width: 3rem;
+    height: var(--buttonHeight);
+    line-height: var(--buttonHeight);
+    outline: 0;
+    cursor: pointer;
+}
+
+#asApp .ratingScale.stars input[type="radio"]::before {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    font-family: 'Icon';
+    font-size: 2rem;
+    content: '\e934';
+    color: var(--on-surface);
+    z-index: 1;
+}
+
+#asApp .ratingScale.stars input[type="radio"]:hover,
+#asApp .ratingScale.stars input[type="radio"]:focus {
+    filter: brightness(90%);
+    text-shadow: 0 0 6px var(--primary);
+    font-size: 110%;
+}
+
+
+/* #asApp .ratingScale.stars input[type="radio"]:hover::after,
+#asApp .ratingScale.stars input[type="radio"]:focus::after {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    font-family: 'Icon';
+    font-size: 2.25rem;
+    content: '\e935';
+    color: var(--primary);
+    z-index: 0;
+} */
+
+#asApp .ratingScale.stars input[type="radio"]:checked::before {
+    content: '\e935';
+    color: var(--primary);
+}
+
+
+/* Select Menus */
+
+div.setting>select {
+    height: 1.5rem;
+    min-width: calc(var(--buttonHeight) * 2);
+    /* margin: 1rem; */
+    margin-top: calc((var(--buttonHeight) - 1.5rem) / 2);
+    color: var(--on-surface);
+    background-color: var(--surface);
+    border: 1px solid var(--on-surface);
+    outline-color: var(--primary);
+}
+
+div.setting>select>option:hover,
+div.setting>select>option:active,
+div.setting>select>option::-moz-focus-inner,
+div.setting>select>option::-moz-focus-outer,
+div.setting>select>option:focus,
+div.setting>select>option:focus-visible {
+    font-weight: bold;
+    color: var(--on-primary);
+    background-color: var(--primary);
+}
+
+input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    width: 100%;
+    height: .4rem;
+    border-radius: .2rem;
+    margin: auto;
+    background: var(--secondary);
+    outline: none;
+}
+
+input[type="range"]::-moz-range-progress {
+    border-radius: .2rem;
+    height: .5rem;
+    background: var(--primary);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: .5rem;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+#fontSize {
+    min-width: 12rem;
+}
+
+#lineHeight {
+    min-width: 12rem;
+}
+
+div.fontSample {
+    margin: 1rem;
+    border: 1px solid var(--on-surface);
+    padding: 1rem;
+    height: 200px;
+    overflow: hidden;
+    font-family: var(--crsFont);
+    font-size: var(--crsFontSize);
+    line-height: var(--crsLineHeight);
+}
+
+#_DEBUGGING {}
+
+div {
+    /* border: 1px solid rgb(0, 238, 255); */
+}
+
+a {
+    /* border: 1px dashed red; */
+}
+
+p {
+    /* border: 1px dashed green; */
+}

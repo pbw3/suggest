@@ -1,0 +1,42 @@
+{
+    "id": "/home/dev/suggest/index.html",
+    "name": "Auto Suggest",
+    "short_name": "Auto Suggest",
+    "description": "An app to assist choosing wisely by suggesting predetermined options",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#213269",
+    "theme_color": "#213269",
+    "orientation": "portrait-primary",
+    "icons": [{
+            "src": "images/icons/icon-120x120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

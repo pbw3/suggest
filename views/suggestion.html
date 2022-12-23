@@ -1,0 +1,25 @@
+<div class="suggestion">
+    <form id="sugForm">
+        <label for="label">Label</label>
+        <input id="label" type="text" value="<%= label %>"><br />
+        <label for="options">Options</label>
+        <textarea id="options"><%= options.join('\n') %></textarea>
+        <label for="time">Time</label>
+        <input id="time" type="time" value="<%= time %>"><br />
+        <label for="recurValue">Recurrence</label>
+        <input id="recurValue" type="text" value="<%= recurValue %>" size="3">
+        <select id="recurUnit">
+        <option value="">(unit)</option>
+        <% 
+        var options = ['minutes', 'hours', 'days', 'weeks', 'months', 'years'];
+        options.map((opt, i) => {
+            let selected = (options.indexOf(recurUnit) == i) ? "selected" : '';
+            %><option value="<%=opt%>" <%=selected%>><%=opt%></option><%
+        });
+        %>
+        </select><br />
+        <div class="right">
+            <button id="btnSaveSuggestion" class="primary systemBtn">Save</button>
+        </div>
+    </form>
+</div>
