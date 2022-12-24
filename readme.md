@@ -2,7 +2,7 @@
 An app to assist choosing wisely by suggesting predetermined options. The app works like an alarm, by displaying suggestions at scheduled recurring times. Each suggestion may include multiple options. The suggested option is rotated each time the suggestion is displayed.
 
 ## Live Demo
-https://stitch-unruly-clerk.glitch.me/
+https://pbw3.github.io/suggest/
 
 ## Examples
 * Suggestion: Eat Breakfast
