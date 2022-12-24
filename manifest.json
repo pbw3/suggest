@@ -5,8 +5,8 @@
     "description": "An app to assist choosing wisely by suggesting predetermined options",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#213269",
-    "theme_color": "#213269",
+    "background_color": "#AEC4D8",
+    "theme_color": "#AEC4D8",
     "orientation": "portrait-primary",
     "icons": [{
             "src": "images/icons/icon-120x120.png",
