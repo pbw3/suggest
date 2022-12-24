@@ -28,7 +28,8 @@ var Listener = {
 
         surface.addEventListener('contextmenu', Listener.context);
 
-        window.addEventListener("resize", Listener.resize);
+        // window.addEventListener("resize", Listener.resize);
+
         // window.addEventListener('hashchange', Reader.navigate);
         elm = document.querySelector('#readerMainScroll');
         elm.addEventListener("scroll", Listener.scroll);
@@ -116,16 +117,6 @@ var Listener = {
      */
     mouseUp: function(e) {
         console.log('Listener.mouseUp()');
-        Gesture.menuTimer = setTimeout(() => {
-            if (window.getSelection) {
-                var sel = window.getSelection();
-                if (!sel.isCollapsed) {
-                    range = sel.getRangeAt(0);
-                    Mark.displaySelectionMenu();
-                }
-            }
-        }, 50);
-        // Listener.absorb(e);
     },
 
     /**
@@ -139,7 +130,8 @@ var Listener = {
         if (ENV.curUser) resetSessionTimer();
 
         if (target.type == "checkbox" ||
-            target.type == "time") {
+            target.type == "time" ||
+            target.type == "date") {
             // allow default
             console.log('allow');
         } else { e.preventDefault(); }
@@ -153,6 +145,8 @@ var Listener = {
         else if (target.id == "centerPanelBtnMenu") {
             toggleLeft();
             // handleTab(document.querySelector('#tabMenu'));
+        } else if (target.id == "btnNewSuggestion") {
+            Suggestions.edit();
         } else if (target.id == "centerPanelBtnBarMore") {
             handleBtnMore(e);
         } else if (target.id == "btnSettingsClose") {
@@ -160,7 +154,12 @@ var Listener = {
             showTab('tabReader');
         } else if (target.id == "btnSaveSuggestion") {
             await Suggestions.save();
-            // showTab('tabReader');
+            Suggestions.displayAll();
+        } else if (target.id == "btnCancelSuggestion") {
+            Suggestions.displayAll();
+        } else if (target.id == "btnDeleteSuggestion") {
+            let removed = await Suggestions.remove(ENV.curSug.date);
+            if (removed) Suggestions.displayAll();
         }
 
         // Settings Tab
@@ -325,17 +324,7 @@ var Listener = {
      * Handle scroll event
      */
     scroll: function() {
-        if (ENV.curUser) resetSessionTimer();
-        var mainScroll = document.querySelector('#readerMainScroll');
-        var triggerHeight = 150;
-        var audioFab = document.querySelector('#btnAudioFab');
-        if (mainScroll.scrollTop > triggerHeight && !audioFab.classList.contains('lowered')) {
-            audioFab.classList.toggle('lowered');
-        }
-        if (mainScroll.scrollTop < triggerHeight && audioFab.classList.contains('lowered')) {
-            audioFab.classList.toggle('lowered');
-        }
-        ENV.curPara = Reader.getTopPara();
+        // 
     },
 
     /**

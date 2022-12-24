@@ -127,6 +127,7 @@
     margin: 0;
     box-sizing: border-box;
     text-align: left;
+    color-scheme: dark;
 }
 
 #asBody button {
@@ -136,12 +137,14 @@
 #asBody input[type=text],
 #asBody input[type=search],
 #asBody input[type=time],
+#asBody input[type=date],
+#asBody input[type=datetime-local],
 #asBody select {
     height: 70%;
     padding: 4px;
     padding-left: 7px;
-    color: var(--on-surface);
-    background-color: var(--surface);
+    /* color: var(--on-surface); */
+    /* background-color: var(--surface); */
     border: 1px solid var(--secondary);
     border-radius: 2px;
     outline-color: var(--primary);
@@ -149,13 +152,17 @@
     min-width: 1rem;
 }
 
+#asBody .datetime {
+    font-family: monospace;
+}
+
 #asBody textarea {
     box-sizing: border-box;
     width: 100%;
     min-height: 8rem;
     padding: 4px;
-    background-color: var(--surface);
-    color: var(--on-surface);
+    /* background-color: var(--surface); */
+    /* color: var(--on-surface); */
     border: 1px solid var(--secondary);
     outline-color: var(--primary);
     font-family: var(--appFont);
@@ -501,7 +508,7 @@ h1 {
     font-size: 2em;
     font-weight: normal;
     line-height: 1.5em;
-    padding-bottom: 3.5em;
+    /* padding-bottom: 3.5em; */
     /* color: var(--hyperlink); */
 }
 
@@ -1273,6 +1280,11 @@ div.clear {
     font-family: icon;
     font-size: 1.5rem;
     content: '\e923';
+}
+
+#pageTitle {
+    font-size: x-large;
+    text-align: center;
 }
 
 #tabContentBookmarks a span.bookmarkPageTitle,

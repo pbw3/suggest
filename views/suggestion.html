@@ -1,11 +1,12 @@
-<div class="suggestion">
+<div class="suggestion rowContainer">
     <form id="sugForm">
         <label for="label">Label</label>
         <input id="label" type="text" value="<%= label %>"><br />
         <label for="options">Options</label>
         <textarea id="options"><%= options.join('\n') %></textarea>
-        <label for="time">Time</label>
-        <input id="time" type="time" value="<%= time %>"><br />
+        <label for="stDate">Starting</label>
+        <input id="stDate" type="date" value="<%= stDate %>">
+        <input id="stTime" type="time" value="<%= stTime %>"><br />
         <label for="recurValue">Recurrence</label>
         <input id="recurValue" type="text" value="<%= recurValue %>" size="3">
         <select id="recurUnit">
@@ -18,7 +19,11 @@
         });
         %>
         </select><br />
+        <label for="due">Due</label>
+        <input type="text" disabled value="<%= due %>" class="datetime">
+        <!-- datetime-local -->
         <div class="right">
+            <button id="btnCancelSuggestion" class="systemBtn">Cancel</button>
             <button id="btnSaveSuggestion" class="primary systemBtn">Save</button>
         </div>
     </form>

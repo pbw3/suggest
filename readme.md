@@ -11,8 +11,12 @@ An app to assist choosing wisely by suggesting predetermined options
 
 ## Data Structure
 * Suggestions
-    * label
-    * options
-        * label 
-* Options
+    * date (integer, primary key)
+    * label (string)
+    * image (string)
+    * options (string array)
+    * time (string, hh:mm)
+    * recurUnit (enum [minutes|hours|days|weeks|monhts|years])
+    * recurValue (integer)
 * Events
+

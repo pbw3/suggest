@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", initApp);
 var ENV = {
     appVersion: '',
     curUserId: -1,
+    curSug: {},
     os: '',
+    nextSug: {},
     settings: {
         id: 1,
         theme: "Light",
@@ -42,11 +44,12 @@ async function initApp() {
     asApp.innerHTML = html;
 
     Listener.init();
-    Listener.resize();
+    // Listener.resize();
     await registerServiceWorker();
     await Database.init();
 
     Suggestions.displayAll();
+    Timer.checkTime();
 
     console.log('App Version: ' + AD.version);
 }
@@ -242,7 +245,7 @@ function handleMenuItem(elm) {
     if (prev) { prev.classList.remove('selected'); }
     elm.classList.add('selected');
     let id = elm.href.replace(/.*#/, '') * 1;
-    Suggestions.displayForm(id)
+    Suggestions.edit(id)
     return;
 }
 
