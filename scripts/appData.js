@@ -2,7 +2,7 @@ console.log('appData.js loaded...');
 
 var AD = {};
 
-AD.version = "0.2022-12-22 07:57:53"; // POC 1.2022-04-20 09:33:58, 1.2022-04-14 18:24:36
+AD.version = "1.2022-12-24 11:32:13"; // Ctrl + Shift + I
 AD.cacheName = "Suggest-Cache-1";
 AD.dbName = "Suggest-DB-1";
 
@@ -16,18 +16,22 @@ AD.appFiles = [
     'images/icons/icon-256x256.png',
     'images/icons/icon-384x384.png',
     'images/icons/icon-512x512.png',
-    'images/sounds/*.aac',
+    'images/sounds/Alarm Dawn.mp3',
     'index.html',
     'manifest.json',
     'scripts/appData.js',
     'scripts/database.js',
+    'scripts/ejs.js',
     'scripts/index.js',
     'scripts/listener.js',
+    'scripts/suggestions.js',
+    'scripts/timer.js',
     'scripts/utilities.js',
     'styles/icon.css',
     'styles/icon.woff',
     'styles/style.css',
     'views/shell.html',
+    'views/suggestion.html',
 ];
 
 AD.nonCacheFiles = [
