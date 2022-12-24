@@ -2,7 +2,7 @@ console.log('timer.js loaded...');
 
 const Timer = (() => {
 
-    let timeoutId;
+    var timeoutId;
 
     async function checkTime() {
         let clock = document.querySelector('#pageTitle');
